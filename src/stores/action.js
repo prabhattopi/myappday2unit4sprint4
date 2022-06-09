@@ -14,7 +14,7 @@ export const todoupdate=(payload)=>({
     payload,
 })
 
-export const getTodods=(dispatch)=>{
+export const getTodods=()=>(dispatch)=>{
       //this time is waiting
       dispatch({type:GET_TODOS_LOADING})
     axios.get("http://localhost:8080/Products").then((r)=>{
@@ -28,10 +28,10 @@ export const getTodods=(dispatch)=>{
 
       })
 }
-export const addTodo=(dispatch,payload)=>{
+export const addTodo=(payload)=>(dispatch)=>{
     dispatch({type:ADD_TODOS_LOADING})
     axios.post("http://localhost:8080/Products",payload).then(r=>{
-   dispatch({type:ADD_TODOS_SUCCEES.at,payload:r.data})
+   dispatch({type:ADD_TODOS_SUCCEES,payload:r.data})
     }).catch(()=>{
         dispatch({type:ADD_TODOS_ERROR})
     })

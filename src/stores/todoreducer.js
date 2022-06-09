@@ -7,12 +7,12 @@ import { ADD_TODOS_ERROR, ADD_TODOS_LOADING, ADD_TODOS_SUCCEES, COMPLETE_TODO, D
 
    
     const initialState={
-        addTodo:{
+        addTod:{
             loading:false,
         error:false,
         data:{}
         },
-        getTodods:{
+        getTod:{
             loading:false,
         error:false,
         data:[]
@@ -24,10 +24,10 @@ export const todoReducer=(state=initialState,{type,payload})=>{
         case GET_TODOS_SUCCEES:{
             return{
                 ...state,
-            getTodods:{
-                ...state.getTodods,
+            getTod:{
+                ...state.getTod,
                 loading:false,
-                todos:payload
+            data:payload
                 
             }
         }
@@ -35,8 +35,8 @@ export const todoReducer=(state=initialState,{type,payload})=>{
         case GET_TODOS_LOADING:{
             return{
                 ...state,
-            getTodods:{
-               ...state.getTodods,
+            getTod:{
+               ...state.getTod,
                 loading:true,
               
                 
@@ -46,10 +46,10 @@ export const todoReducer=(state=initialState,{type,payload})=>{
         case GET_TODOS_ERROR:{
             return{
                 ...state,
-            getTodods:{
-                ...state.getTodods,
+            getTod:{
+                ...state.getTod,
                 loading:false,
-                todos:payload
+                data:payload
                 
             }
         }
@@ -58,19 +58,24 @@ export const todoReducer=(state=initialState,{type,payload})=>{
         case ADD_TODOS_SUCCEES:{
             return{
                 ...state,
-            getTodo:{
-                ...state.getTodods,
+            getTod:{
+                ...state.getTod,
                 loading:false,
-                todos:payload
+                data:[...state.getTod.data,payload]
                 
+            },
+            addTod:{
+                ...state.addTod,
+                loading:false,
+                data:payload
             }
         }
         }
         case ADD_TODOS_LOADING:{
             return{
                 ...state,
-            getTodo:{
-               ...state.getTodods,
+            addTod:{
+               ...state.addTod,
                 loading:true,
               
                 
@@ -80,10 +85,10 @@ export const todoReducer=(state=initialState,{type,payload})=>{
         case ADD_TODOS_ERROR:{
             return{
                 ...state,
-            addTodo:{
-                ...state.getTodods,
+            addTod:{
+                ...state.addTod,
                 loading:false,
-                todos:payload
+               
                 
             }
         }

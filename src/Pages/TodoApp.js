@@ -9,12 +9,14 @@ export const TodoApp = () => {
     const ref=useRef()
     
     
-    
+ 
 
 
-    const {loading,error,todos}=useSelector((state)=>state.todoApp)
+    const {getTod:gTodo,addTod:aTodo}=useSelector((state)=>state.todoApp)
+
+
     
-   
+  
     
    
     const addNew=()=>{
@@ -29,17 +31,17 @@ export const TodoApp = () => {
     }
     useEffect(() => {
      
-    getTodods(dispatch)
+     dispatch(getTodods())
     
     
     
     }, [])
-   if(loading){
+   if(gTodo.loading){
      return(
        <div>Loading....</div>
      )
    }
-   else if(error){
+   else if(gTodo.error){
      return (
        <div>Something.....</div>
      )
@@ -59,7 +61,7 @@ export const TodoApp = () => {
      
      <br />
      
-     {todos.map((todo,i)=>(<div style={{marginTop:"10px"}} key={i}>{todo.name}</div>))}
+     {gTodo.data.map((todo,i)=>(<div style={{marginTop:"10px"}} key={i}>{todo.name}</div>))}
      
 
   </div>

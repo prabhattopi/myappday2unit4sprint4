@@ -15,7 +15,7 @@ export const GET_TODOS_SUCCEES="todo/get//succees/"
 export const  GET_TODOS_LOADING="todo/laoding"
 export const  GET_TODOS_ERROR="todo/laoding"
 
-export const ADD_TODOS_SUCCEES="todo/get//succees/"
+export const ADD_TODOS_SUCCEES="todo/add/succees/"
 export const  ADD_TODOS_LOADING="todo/laoding"
 export const  ADD_TODOS_ERROR="todo/laoding"
 
